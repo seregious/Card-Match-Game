@@ -73,6 +73,7 @@ struct EmojiGameView: View {
     
     var deckBody : some View {
         ZStack {
+
             ForEach(game.cards.filter(isUnDealt)) {card in
                 cardView(card: card)
                     .matchedGeometryEffect(id: card.id, in: animation)
@@ -134,9 +135,9 @@ struct cardView: View {
         
         GeometryReader { geometry in
             ZStack {
-                Pie(startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 50))
-                    .padding(5)
-                    .opacity(0.4)
+//                Pie(startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 50))
+//                    .padding(5)
+//                    .opacity(0.4)
                 Text(card.content)
                     .scaleEffect(card.isMatched ? 1.2 : 0.8)
                     .animation(Animation.easeInOut(duration: 1).repeatForever())
